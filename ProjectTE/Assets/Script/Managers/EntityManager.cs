@@ -5,7 +5,9 @@ using UnityEngine;
 
 public enum EntityCategory
 {
-    Player,
+    PlayerTeam,
+    EnemyTeam1,
+    EnemyTeam2,
     Obstacle,
     Projectile,
     Max

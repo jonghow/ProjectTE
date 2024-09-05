@@ -2,8 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityStatus : MonoBehaviour
+public class EntityStatus
 {
+
+    public EntityStatus()
+    {
+        _strength = 10;
+        _dexterity = 10;
+        _wisdom = 10;
+        _guts = 10;
+        _mental = 10;
+        
+        // 2Â÷ ½ºÅÈ
+        _physicalAtk = 10f;
+        _magicalAtk = 10f;
+
+        _hitRate = 10f;
+        _evasionRate = 10f;
+
+        _physicalCriticalAtkRate = 10f;
+        _magicalCriticalAtkRate = 10f;
+
+        _physicalCriticalAtkDamageInc = 10f;
+        _magicalCriticalAtkDamageInc = 10f;
+
+        _buffEfficiency = 10f;
+
+        _physicalDef = 10f;
+        _magicalDef = 10f;
+
+        _physicalCriticalAtkBlockRate = 10f;
+        _magicalCriticalAtkBlockRate = 10f;
+
+        _physicalCriticalAtkDamageDec = 10f;
+        _magicalCriticalAtkDamageDec = 10f;
+    }
+
     /*
      * 1Â÷ ½ºÅÈ
      * Èû
