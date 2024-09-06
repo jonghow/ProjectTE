@@ -2,15 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EntityStatus 
 {
+
+    public EntityStatus()
+    {
+        _strength = 10;
+        _dexterity = 10;
+        _wisdom = 10;
+        _guts = 10;
+        _mental = 10;
+        
+        // 2ì°¨ ìŠ¤íƒ¯
+        _physicalAtk = 10f;
+        _magicalAtk = 10f;
+
+        _hitRate = 10f;
+        _evasionRate = 10f;
+
+        _physicalCriticalAtkRate = 10f;
+        _magicalCriticalAtkRate = 10f;
+
+        _physicalCriticalAtkDamageInc = 10f;
+        _magicalCriticalAtkDamageInc = 10f;
+
+        _buffEfficiency = 10f;
+
+        _physicalDef = 10f;
+        _magicalDef = 10f;
+
+        _physicalCriticalAtkBlockRate = 10f;
+        _magicalCriticalAtkBlockRate = 10f;
+
+        _physicalCriticalAtkDamageDec = 10f;
+        _magicalCriticalAtkDamageDec = 10f;
+    }
+
     /*
-     * 1Â÷ ½ºÅÈ
-     * Èû
-     * ¹ÎÃ¸
-     * Áö´É
-     * ±Ù¼º
-     * Á¤½Å
+     * 1ì°¨ ìŠ¤íƒ¯
+     * í˜
+     * ë¯¼ì²©
+     * ì§€ëŠ¥
+     * ê·¼ì„±
+     * ì •ì‹ 
      */
 
     private int _strength;
@@ -20,22 +55,22 @@ public class EntityStatus
     private int _mental;
 
     /* 
-     * 2Â÷ ½ºÅÈ 
-     * ¹°¸® °ø°İ
-     * ¸¶¹ı °ø°İ
-     * ÀûÁß·ü
-     * È¸ÇÇÀ²
-     * ¹°¸® Ä¡¸íÅ¸
-     * ¸¶¹ı Ä¡¸íÅ¸
-     * ¹°¸® Ä¡¸íÅ¸ Áõ°¡
-     * ¸¶¹ı Ä¡¸íÅ¸ Áõ°¡ 
-     * ¹öÇÁ È¿À² ( ¹öÇÁ·®¿¡ ´ëÇÑ È¿À²À» ¿Ã¸®°Å³ª, Áö¼Ó ½Ã°£ µîÀ» ¿Ã¸± ¼ö ÀÖµµ·Ï ÇÑ´Ù.)
-     * ¹°¸® ¹æ¾î·Â
-     * ¸¶¹ı ¹æ¾î·Â
-     * ¹°¸® Ä¡¸íÅ¸ ¹æ¾îÀ²
-     * ¸¶¹ı Ä¡¸íÅ¸ ¹æ¾îÀ²
-     * ¹°¸® Ä¡¸íÅ¸ °¨¼ÒÀ²
-     * ¸¶¹ı Ä¡¸íÅ¸ °¨¼ÒÀ²
+     * 2ì°¨ ìŠ¤íƒ¯ 
+     * ë¬¼ë¦¬ ê³µê²©
+     * ë§ˆë²• ê³µê²©
+     * ì ì¤‘ë¥ 
+     * íšŒí”¼ìœ¨
+     * ë¬¼ë¦¬ ì¹˜ëª…íƒ€
+     * ë§ˆë²• ì¹˜ëª…íƒ€
+     * ë¬¼ë¦¬ ì¹˜ëª…íƒ€ ì¦ê°€
+     * ë§ˆë²• ì¹˜ëª…íƒ€ ì¦ê°€ 
+     * ë²„í”„ íš¨ìœ¨ ( ë²„í”„ëŸ‰ì— ëŒ€í•œ íš¨ìœ¨ì„ ì˜¬ë¦¬ê±°ë‚˜, ì§€ì† ì‹œê°„ ë“±ì„ ì˜¬ë¦´ ìˆ˜ ìˆë„ë¡ í•œë‹¤.)
+     * ë¬¼ë¦¬ ë°©ì–´ë ¥
+     * ë§ˆë²• ë°©ì–´ë ¥
+     * ë¬¼ë¦¬ ì¹˜ëª…íƒ€ ë°©ì–´ìœ¨
+     * ë§ˆë²• ì¹˜ëª…íƒ€ ë°©ì–´ìœ¨
+     * ë¬¼ë¦¬ ì¹˜ëª…íƒ€ ê°ì†Œìœ¨
+     * ë§ˆë²• ì¹˜ëª…íƒ€ ê°ì†Œìœ¨
      */
     private double _physicalAtk;    
     private double _magicalAtk;

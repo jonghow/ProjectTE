@@ -9,6 +9,8 @@ public class EntityMonsterController : EntityContoller
     private float _attackRange;
     private float _moveSpeed;
 
+    // 월드 모델은 어디서 관리?
+    private Avatar _avatar; // 공용화된 모델 베이스
     private EntityBehaviorTreeNormalMonster _behaviorTree;
 
     public void Start()
@@ -33,6 +35,7 @@ public class EntityMonsterController : EntityContoller
 
     private void Update()
     {
+        // AI 평가
         _behaviorTree.Evaluate();
     }
 

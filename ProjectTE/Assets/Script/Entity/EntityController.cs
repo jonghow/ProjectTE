@@ -6,18 +6,8 @@ using EntityBehaviorTree;
 public abstract class EntityContoller : MonoBehaviour
 {
     public Transform _target;
+    public AnimationPlayer _animPlayer;
+    public EntityCategory _category;
+
     protected abstract void SetUp();
-}
-
-public class EntityPlayerContoller : EntityContoller
-{
-    protected override void SetUp()
-    {
-        throw new System.NotImplementedException();
-    }
-}
-
-public interface BehaviorTreeAI
-{
-
 }
