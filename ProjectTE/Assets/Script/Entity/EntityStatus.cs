@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityStatus : MonoBehaviour
+public class EntityStatus 
 {
     /*
      * 1Â÷ ½ºÅÈ
