@@ -28,7 +28,7 @@ public class UserEntityFactory : EntityFactoryBase
             EntityManager.GetInstance().AddObject(EntityCategory.PlayerTeam, uUID, entity);
 
             Debug.Log($"[UserEntityFactory] CreateEntity() Success");
-        } );
+        } ); ;
 
         return null;
     }
