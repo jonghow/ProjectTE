@@ -17,7 +17,19 @@ public class UserEntityFactory : EntityFactoryBase
 {
     public override Entity CreateEntity()
     {
-        Debug.Log($"[UserEntityFactory] CreateEntity()");
+        ResourceManager.GetInstance().GetResource(ResourceType.Entity, true, (obj) => {
+
+            var gObj = GameObject.Instantiate(obj) as GameObject;
+            var entity = gObj.GetComponent<Entity>();
+
+            UUIDGenerator<long> uUIDGenerator = UUIDGenerator<long>.GetInstance();
+            var uUID = uUIDGenerator.Generate();
+
+            EntityManager.GetInstance().AddObject(EntityCategory.PlayerTeam, uUID, entity);
+
+            Debug.Log($"[UserEntityFactory] CreateEntity() Success");
+        } );
+
         return null;
     }
 }
