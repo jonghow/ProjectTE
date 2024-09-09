@@ -7,16 +7,14 @@ public class UUIDGenerator<T>
 {
     private static UUIDGenerator<T> _instance;
     private UniqueIDGenerateAlgorithm<T> _algorithm;
-    private UUIDGenerator()
-    {
-        _instance._algorithm = new TwitterSnowFlakeAlgorithm(0, 0) as UniqueIDGenerateAlgorithm<T>;
-    }
+    private UUIDGenerator() { }
 
-    public UUIDGenerator<T> GetInstance()
+    public static UUIDGenerator<T> GetInstance()
     {
         if (_instance == null)
             _instance = new UUIDGenerator<T>();
 
+        _instance._algorithm = new TwitterSnowFlakeAlgorithm(0, 0) as UniqueIDGenerateAlgorithm<T>;
         return _instance;
     }
 

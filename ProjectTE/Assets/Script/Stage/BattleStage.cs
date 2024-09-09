@@ -13,7 +13,6 @@ public class BattleStage : MonoBehaviour
 
             var spawner = new UserEntityFactory();
             spawner.CreateEntity();
-
             
         }
 
