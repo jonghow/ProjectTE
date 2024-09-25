@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using EntityBehaviorTree;
 
+
+
+
 public class EntityMonsterController : EntityContoller
 {
    private float _detectRange;
@@ -13,11 +16,14 @@ public class EntityMonsterController : EntityContoller
     private Avatar _avatar; // 공용화된 모델 베이스
     private EntityBehaviorTreeNormalMonster _behaviorTree;
 
+    // Controller BuffSystem
+    private AbnormalSystem _abnormalSystem;
+
+
     public void Start()
     {
         SetUp();
     }
-
     protected override void SetUp()
     {
         AISetUp();
@@ -26,7 +32,6 @@ public class EntityMonsterController : EntityContoller
         _attackRange = 1.5f;
         _moveSpeed = 2.5f;
     }
-
     private void AISetUp()
     {
         _behaviorTree = new EntityBehaviorTreeNormalMonster($"Monster", 1, this);
@@ -37,6 +42,10 @@ public class EntityMonsterController : EntityContoller
     {
         // AI 평가
         _behaviorTree.Evaluate();
+
+        // Abnormal
+        float smoothDeltaTime = Time.smoothDeltaTime;
+        _abnormalSystem.OnUpdateAbnormals(smoothDeltaTime);
     }
 
     public void OnDrawGizmos()

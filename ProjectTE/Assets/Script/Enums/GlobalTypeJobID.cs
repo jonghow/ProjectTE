@@ -9,3 +9,20 @@ public enum GlobalTypeJob
     Archer,
     Mage
 }
+
+public enum AbnormalType
+{
+    None,
+
+    // Mez
+    Stun,
+    Confused,
+
+    // Buff
+    BuffAttackUp,
+
+    // Debuff
+    DebuffAttackDown,
+
+    End
+}
