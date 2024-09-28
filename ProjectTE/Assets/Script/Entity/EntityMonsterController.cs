@@ -25,8 +25,9 @@ public class EntityMonsterController : EntityContoller
         SetUp();
     }
     protected override void SetUp()
-    {
+    { 
         AISetUp();
+        AbnormalSystemSetUp();
 
         _detectRange = 5.0f;
         _attackRange = 1.5f;
@@ -36,6 +37,11 @@ public class EntityMonsterController : EntityContoller
     {
         _behaviorTree = new EntityBehaviorTreeNormalMonster($"Monster", 1, this);
         _behaviorTree.Evaluate();
+    }
+
+    private void AbnormalSystemSetUp()
+    {
+        _abnormalSystem = new AbnormalSystem();
     }
 
     private void Update()

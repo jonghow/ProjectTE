@@ -10,7 +10,7 @@ public class EntityInfo
         _maxhp = _hp;
 
         _skillEnerge = 100;
-        _maxSkillEnerge = _skillEnerge ;
+        _maxSkillEnerge = _skillEnerge;
 
         _isDead = false;
 
