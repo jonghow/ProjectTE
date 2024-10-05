@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,7 +6,9 @@ using UnityEngine;
 
 public enum ResourceType
 {
-    Entity
+    Entity,
+    Projectile,
+    Effect
 }
 
 public class ResourceManager : MonoBehaviour
@@ -46,6 +49,26 @@ public class ResourceManager : MonoBehaviour
         _routines = StartCoroutine(RoutineGetResource(_resourceType, _isCache, _callback));
     }
 
+    public void UTaskGetResource(ResourceType _resourceType, bool _isCache, Action<UnityEngine.Object> _callback)
+    {
+        UnityEngine.Object _ret = null;
+
+        if (_dic_Objects.TryGetValue(_resourceType, out _ret))
+        {
+            _callback.Invoke(_ret);
+            return;
+        }
+
+        if (_routines != null)
+        {
+            StopCoroutine(_routines);
+            _routines = null;
+        }
+
+        UTGetResource(_resourceType, _isCache, _callback).Forget();
+    }
+
+    // Coroutine
     public IEnumerator RoutineGetResource(ResourceType _resourceType, bool _isCache, Action<UnityEngine.Object> _callback)
     {
         UnityEngine.Object _ret = null;
@@ -62,6 +85,25 @@ public class ResourceManager : MonoBehaviour
         if (_dic_Objects.ContainsKey(_resourceType) == false)
             _dic_Objects.Add(_resourceType, _ret);
 
-        _callback.Invoke(_ret);
+        _callback?.Invoke(_ret);
+    }
+
+    private async UniTaskVoid UTGetResource(ResourceType _resourceType, bool _isCache, Action<UnityEngine.Object> _callback)
+    {
+        UnityEngine.Object _ret = null;
+
+        // ¾ø´Ù¸é,
+        //string path = Application.dataPath + $"/ResourceData/00.Entity/Entity";
+        string path = $"Entity";
+        var resourceRequest = Resources.LoadAsync<UnityEngine.Object>(path);
+
+        await UniTask.WaitUntil(() => resourceRequest.isDone == true);
+
+        _ret = resourceRequest.asset as UnityEngine.Object;
+
+        if (_dic_Objects.ContainsKey(_resourceType) == false)
+            _dic_Objects.Add(_resourceType, _ret);
+
+        _callback?.Invoke(_ret);
     }
 }
