@@ -7,11 +7,7 @@ namespace EntityBehaviorTree
     public class EntityBehaviorCowardMeleeType : EntityBehaviorTreeBase , IBehaviorTreeSetter
     {
         /*
-         * 겁쟁이 타입의 AI 
-         * 
-         * 
-         * 
-         * 
+         * 견습 검사 타입의 AI
          */
         public EntityBehaviorCowardMeleeType(string _name, int _uniqueID, EntityContoller _controller) : base(_name, _uniqueID,_controller) {
             AISetup();
@@ -42,7 +38,7 @@ namespace EntityBehaviorTree
             detectRangeSequence.AddChild(detectRangeCondition);
             detectRangeSequence.AddChild(detectRangeProbe);
 
-            atkSequence.AddChild(atkPreDelayAction);
+            atkSequence.AddChild(atkPreDelayAction);//
             atkSequence.AddChild(atkAction);
 
             chaseSequence.AddChild(playerInRange);

@@ -31,6 +31,7 @@ namespace EntityBehaviorTree
             float dist = Vector3.Distance(_ownerTransform.position, _targetTransform.position);
             //Debug.Log($"Chase! Distance :: {dist}");
             _ownerTransform.position = Vector3.MoveTowards(_ownerTransform.position, _targetTransform.position, _moveSpeed * Time.deltaTime);
+            _ownerTransform.LookAt(_targetTransform.position);
             return BTNodeState.Running;
         }
 
@@ -55,6 +56,7 @@ namespace EntityBehaviorTree
 
             GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             obj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            obj.transform.position = _shooter.position + _shooter.forward * 3f;
 
             return BTNodeState.Success;
         }
@@ -113,6 +115,7 @@ namespace EntityBehaviorTree
             Vector3 AT = dir * _speed * Time.deltaTime;
             Vector3 P1 = P0 + AT;
             _owner.position = P1;
+            _owner.LookAt(destinationPos);
 
             if (Vector3.Distance(currentPos, destinationPos) <= 0.1f)
                 ++_currentIndex;
