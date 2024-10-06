@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 2716637016
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c5eb313d532ac6a0e8e529431739e42b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 312b36f2f9ab156aa74cf892be4001db
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c5eb313d532ac6a0e8e529431739e42b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ResourceData/MonsterTest.mat
+- Assets/ResourceData/00.Entity/MonsterEntity/SampleMonster.prefab
+Dependencies: []

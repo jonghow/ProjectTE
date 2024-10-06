@@ -5,9 +5,11 @@ using UnityEngine;
 
 public enum GlobalTypeJob
 {
-    Fighter,
-    Archer,
-    Mage
+    Fighter,         // 전사
+    Shielder,       // 방패병
+    Archer,          // 궁사
+    Mage,            // 마법사
+    
 }
 
 public enum AbnormalType
