@@ -16,7 +16,6 @@ public enum EntityCategory
 public class EntityManager
 {
     public static EntityManager Instance;
-
     public static EntityManager GetInstance()
     {
         if (Instance == null)
@@ -35,7 +34,6 @@ public class EntityManager
 
         DicEntities[_category].Add(_uid, _entity);
     }
-
     public void GetObject(EntityCategory _category, long _uid, out Entity _entity)
     {
         Dictionary<long, Entity> _uidPair = null;
@@ -48,7 +46,6 @@ public class EntityManager
             }
         }
     }
-
     public void GetEntityList(EntityCategory _category, out List<Tuple<long, Entity>> _listEntities)
     {
         if (DicEntities.ContainsKey(_category) == false)

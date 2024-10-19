@@ -31,9 +31,6 @@ public class Entity : MonoBehaviour
         {
 
         }
-
-
-
     }
 
     private void InitializeBaseStat()
